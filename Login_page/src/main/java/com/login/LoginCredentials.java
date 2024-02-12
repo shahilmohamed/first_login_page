@@ -27,8 +27,6 @@ public class LoginCredentials extends GenericServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/college", "root", "root");
 			Statement st = con.createStatement();
-//			PreparedStatement ps = con.prepareStatement("select password from studentlogin where user = ?");
-//			ps.executeQuery();
 			try {
 				ResultSet rs = st.executeQuery("select password from studentlogin where user = '" + user + "'");
 				rs.next();
@@ -51,7 +49,6 @@ public class LoginCredentials extends GenericServlet {
 				res.setContentType("text/html");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
